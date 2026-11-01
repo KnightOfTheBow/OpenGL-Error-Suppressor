@@ -1,0 +1,20 @@
+{
+	"schemaVersion": 1,
+	"id": "opengl-error-suppressor",
+	"version": "${version}",
+	"name": "OpenGL Error Suppressor",
+	"description": "Suppresses duplicate OpenGL errors.",
+	"authors": ["Archer (KnightOfTheBow)"],
+	"contributors": ["Jamalam"],
+	"contact": {
+		"sources": "https://github.com/KnightOfTheBow/OpenGL-Error-Suppressor"
+	},
+	"license": "MIT",
+	"icon": "assets/opengl-error-suppressor/icon.png",
+	"environment": "client",
+	"mixins": ["opengl-error-suppressor.mixins.json"],
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~1.21.10"
+	}
+}

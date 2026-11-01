@@ -1,0 +1,59 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+plugins {
+	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+}
+
+repositories {
+	maven {
+		name = 'Parchment'
+		url = 'https://maven.parchmentmc.org'
+	}
+	maven {
+		name = 'Transformers'
+		url = 'https://maven.terraformersmc.com'
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings loom.layered() {
+		officialMojangMappings()
+		parchment("org.parchmentmc.data:parchment-${project.minecraft_version}:${project.parchment_version}@zip")
+	}
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	modRuntimeOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+}
+
+processResources {
+	def version = project.version
+	inputs.property 'version', version
+
+	filesMatching('fabric.mod.json') {
+		expand 'version': version
+	}
+	
+	doLast {
+		fileTree(dir: outputs.files.singleFile, include: '**/*.json').each { file -> file.text = JsonOutput.toJson(new JsonSlurper().parse(file)) }
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 21
+}
+
+java {
+	withSourcesJar()
+}
+
+jar {
+	def projectName = project.name
+	inputs.property 'projectName', projectName
+
+	from('LICENSE') {
+		rename { "${it}_$projectName"}
+	}
+}
