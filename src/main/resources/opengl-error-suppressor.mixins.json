@@ -1,6 +1,4 @@
 {
 	"package": "archer.openglerrorsuppressor.mixin",
-	"client": [
-		"WindowMixin"
-	]
+	"client": ["WindowMixin"]
 }
