@@ -5,8 +5,18 @@
 	"name": "OpenGL Error Suppressor",
 	"description": "Suppresses duplicate OpenGL errors.",
 	"authors": ["Archer (KnightOfTheBow)"],
-	"contributors": ["Jamalam"],
+	"contributors": [
+		{
+			"name": "Jamalam",
+			"contact": {
+				"discord": "https://discord.jamalam.tech/",
+				"sources": "https://github.com/JamCoreModding/shut-up-gl-error"
+			}
+		}
+	],
 	"contact": {
+		"homepage": "https://modrinth.com/project/opengl-error-suppressor",
+		"issues": "https://github.com/KnightOfTheBow/OpenGL-Error-Suppressor/issues/",
 		"sources": "https://github.com/KnightOfTheBow/OpenGL-Error-Suppressor"
 	},
 	"license": "MIT",
@@ -14,7 +24,7 @@
 	"environment": "client",
 	"mixins": ["opengl-error-suppressor.mixins.json"],
 	"depends": {
-		"fabricloader": ">=0.20.1",
-		"minecraft": "~1.21.10"
+		"fabricloader": ">=0.6.1",
+		"minecraft": ">=1.14.4 <=26.2"
 	}
 }

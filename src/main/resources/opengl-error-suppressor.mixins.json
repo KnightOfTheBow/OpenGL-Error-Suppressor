@@ -1,4 +1,12 @@
 {
+	"required": true,
+	"minVersion": "0.7",
+	"compatibilityLevel": "JAVA_8",
 	"package": "archer.openglerrorsuppressor.mixin",
-	"client": ["WindowMixin"]
+	"client": [
+		"WindowMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
 }
