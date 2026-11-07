@@ -17,7 +17,7 @@
 	"contact": {
 		"homepage": "https://modrinth.com/project/opengl-error-suppressor",
 		"issues": "https://github.com/KnightOfTheBow/OpenGL-Error-Suppressor/issues/",
-		"sources": "https://github.com/KnightOfTheBow/OpenGL-Error-Suppressor"
+		"sources": "https://github.com/KnightOfTheBow/OpenGL-Error-Suppressor/tree/fabric-v1"
 	},
 	"license": "MIT",
 	"icon": "assets/opengl-error-suppressor/icon.png",
