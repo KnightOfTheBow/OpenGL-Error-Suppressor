@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2026 Archer (KnightOfTheBow)
+ * Copyright (c) 2026 Archer (KnightOfTheBow). Licensed under the MIT License.
  *
- * This project adapts code from "Shut Up GL Error", Copyright (c) 2025 Jamalam.
- * Licensed under the MIT License (MIT).
+ * This project adapts code from "Shut Up GL Error":
+ * Copyright (c) 2025 Jamalam. Licensed under the MIT License.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
