@@ -1,20 +1,11 @@
 # OpenGL Error Suppressor
 A Minecraft Fabric mod that lets only unique OpenGL errors log exactly once, suppressing all subsequent spam.
 
-_Supports all versions from 1.14.4 up to 26.2._ (Tried and tested.)
+_Supports versions from 26.3 and onwards._
 
-You may notice a few warning logs in your console during startup. These are completely harmless and can be safely ignored as the mod works regardless.
-<details><summary>Example Warning Logs (Safe to Ignore)</summary>
+The class this mod hooks into isn't expected to change anytime soon, unless Mojang decides to get rid of OpenGL faster than they indicated, at which point this mod will no longer be needed anyway.
 
-```text
-[xx:xx:xx] [main/WARN]: Error loading class: net/minecraft/class_1041 (java.lang.ClassNotFoundException: net/minecraft/class_1041)
-[xx:xx:xx] [main/WARN]: @Mixin target net/minecraft/class_1041 was not found opengl-error-suppressor.mixins.json:WindowMixin from mod opengl-error-suppressor
-[xx:xx:xx] [main/WARN]: @Mixin target net/minecraft/class_1041 was not found opengl-error-suppressor.mixins.json:WindowMixin from mod opengl-error-suppressor
-```
+## License & Inspiration
+This mod is licensed under the [MIT License](LICENSE).
 
-</details>
-
-## License & Attribution
-This mod is licensed under the MIT license.
-
-This project is adapted from [Shut Up GL Error](https://github.com/JamCoreModding/shut-up-gl-error) (Copyright © 2025 Jamalam).
+This project was originally inspired by [Shut Up GL Error](https://github.com/JamCoreModding/shut-up-gl-error) (Copyright © 2025 Jamalam). While the versions for 26.3+ has been rewritten, credit goes to the original mod for the idea.

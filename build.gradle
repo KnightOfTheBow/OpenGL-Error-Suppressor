@@ -2,14 +2,10 @@ import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
 plugins {
-	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 }
 
 repositories {
-	maven {
-		name = 'Parchment'
-		url = 'https://maven.parchmentmc.org'
-	}
 	maven {
 		name = 'Transformers'
 		url = 'https://maven.terraformersmc.com'
@@ -18,14 +14,10 @@ repositories {
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.layered() {
-		officialMojangMappings()
-		parchment("org.parchmentmc.data:parchment-${project.minecraft_version}:${project.parchment_version}@zip")
-	}
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	modRuntimeOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+	runtimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	runtimeOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
 }
 
 processResources {
@@ -42,7 +34,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release.set(8)
+	it.options.release.set(25)
 }
 
 java {
