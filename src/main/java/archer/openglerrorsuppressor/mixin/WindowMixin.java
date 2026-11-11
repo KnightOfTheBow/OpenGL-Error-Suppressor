@@ -27,6 +27,7 @@ package archer.openglerrorsuppressor.mixin;
 
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
+import it.unimi.dsi.fastutil.ints.IntSets;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -36,10 +37,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(targets = {"com.mojang.blaze3d.platform.Window", "net.minecraft.class_1041"}, remap = false)
 public final class WindowMixin {
     @Unique
-    private final IntSet openglerrorsuppressor$loggedErrors = new IntOpenHashSet();
+    private static final IntSet openglerrorsuppressor$LOGGED_ERRORS = IntSets.synchronize(new IntOpenHashSet());
 
     @Inject(method = "defaultErrorCallback", at = @At("HEAD"), cancellable = true)
     public void defaultErrorCallback(int error, long description, CallbackInfo info) {
-        if (!openglerrorsuppressor$loggedErrors.add(error)) info.cancel();
+        if (!openglerrorsuppressor$LOGGED_ERRORS.add(error)) info.cancel();
     }
 }

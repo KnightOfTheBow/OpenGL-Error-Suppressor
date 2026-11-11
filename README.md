@@ -15,6 +15,6 @@ You may notice a few warning logs in your console during startup. These are comp
 </details>
 
 ## License & Attribution
-This mod is licensed under the MIT license.
+This mod is licensed under the [MIT License](LICENSE).
 
 This project is adapted from [Shut Up GL Error](https://github.com/JamCoreModding/shut-up-gl-error) (Copyright © 2025 Jamalam).
