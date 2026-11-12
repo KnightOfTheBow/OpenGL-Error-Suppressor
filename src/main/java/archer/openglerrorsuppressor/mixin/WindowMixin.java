@@ -34,13 +34,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(targets = {"com.mojang.blaze3d.platform.Window", "net.minecraft.class_1041"}, remap = false)
+@Mixin(targets = {"com.mojang.blaze3d.platform.Window", "net.minecraft.client.MainWindow"}, remap = false)
 public final class WindowMixin {
     @Unique
     private static final IntSet openglerrorsuppressor$LOGGED_ERRORS = IntSets.synchronize(new IntOpenHashSet());
 
-    @Inject(method = "defaultErrorCallback", at = @At("HEAD"), cancellable = true)
-    public void defaultErrorCallback(int error, long description, CallbackInfo info) {
-        if (!openglerrorsuppressor$LOGGED_ERRORS.add(error)) info.cancel();
+    @Inject(method = {"defaultErrorCallback(IJ)V", "m_85382_(IJ)V", "func_198084_a(IJ)V"}, at = @At("HEAD"), cancellable = true, remap = false, require = 1)
+    public void defaultErrorCallback(int errorCode, long description, CallbackInfo info) {
+        if (!openglerrorsuppressor$LOGGED_ERRORS.add(errorCode)) info.cancel();
     }
 }

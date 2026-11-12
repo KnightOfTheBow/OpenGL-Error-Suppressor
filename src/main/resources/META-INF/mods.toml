@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT"
+issueTrackerURL="https://github.com/KnightOfTheBow/OpenGL-Error-Suppressor/tree/forge-v1"
+clientSideOnly=true
+
+[[mods]]
+modId="opengl_error_suppressor"
+version="1.0.1"
+displayName="OpenGL Error Suppressor"
+updateJSONURL="https://api.modrinth.com/updates/m7X4zqI5/forge_updates.json"
+displayURL="https://modrinth.com/mod/opengl-error-suppressor"
+logoFile="icon.png"
+credits='''Derivative of "Shut Up GL Error" by Jamalam'''
+authors="Archer (KnightOfTheBow)"
+displayTest="IGNORE_ALL_VERSION"
+description="Suppresses duplicate OpenGL errors."
+
+[[dependencies.opengl_error_suppressor]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.opengl_error_suppressor]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,26.2]"
+    ordering="NONE"
+    side="CLIENT"

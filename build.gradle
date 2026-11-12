@@ -1,59 +1,67 @@
-import groovy.json.JsonOutput
-import groovy.json.JsonSlurper
-
 plugins {
-	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+    id 'java'
+    id 'net.minecraftforge.gradle' version '[7.0.17,8)'
+    id 'net.minecraftforge.renamer' version '[1.1.8,2)'
+}
+
+version = '1.0.1'
+group = 'archer.openglerrorsuppressor'
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+    withSourcesJar()
+}
+
+base.archivesName = "opengl_error_suppressor-forge"
+
+minecraft {
+    runs {
+        configureEach {
+            workingDir = layout.projectDirectory.dir('run')
+			args '-mixin.config=opengl_error_suppressor.mixins.json'
+
+            systemProperty 'forge.enabledGameTestNamespaces', 'opengl_error_suppressor'
+        }
+
+        register('client')
+    }
 }
 
 repositories {
+    minecraft.mavenizer(it)
+    maven fg.forgeMaven
+    maven fg.minecraftLibsMaven
+    mavenCentral()
 	maven {
-		name = 'Parchment'
-		url = 'https://maven.parchmentmc.org'
-	}
-	maven {
-		name = 'Transformers'
-		url = 'https://maven.terraformersmc.com'
+		name = 'SpongePowered'
+		url = 'https://repo.spongepowered.org/repository/maven-public/'
 	}
 }
 
 dependencies {
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.layered() {
-		officialMojangMappings()
-		parchment("org.parchmentmc.data:parchment-${project.minecraft_version}:${project.parchment_version}@zip")
-	}
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-	modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	modRuntimeOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+    implementation minecraft.dependency('net.minecraftforge:forge:26.2-65.1.5')
+	compileOnly 'org.spongepowered:mixin:0.8.2'
+	annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
 }
 
-processResources {
-	def version = project.version
-	inputs.property 'version', version
+tasks.named('jar', Jar).configure {
+    manifest {
+        attributes([
+            'MixinConfigs': 'opengl_error_suppressor.mixins.json'
+        ])
+    }
+}
 
-	filesMatching('fabric.mod.json') {
-		expand 'version': version
-	}
-	
-	doLast {
-		fileTree(dir: outputs.files.singleFile, include: '**/*.json').each { file -> file.text = JsonOutput.toJson(new JsonSlurper().parse(file)) }
-	}
+configurations.configureEach {
+    if (canBeResolved) {
+        attributes {
+            attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 25)
+        }
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release.set(8)
-}
-
-java {
-	withSourcesJar()
-}
-
-jar {
-	def projectName = project.name
-	inputs.property 'projectName', projectName
-
-	from('LICENSE') {
-		rename { "${it}_$projectName"}
-	}
+    options.encoding = 'UTF-8'
+	
+	options.release = 8
 }
