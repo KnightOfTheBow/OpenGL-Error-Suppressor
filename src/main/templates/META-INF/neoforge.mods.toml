@@ -1,0 +1,33 @@
+modLoader="lowcodefml"
+loaderVersion="[1,)"
+license="${mod_license}"
+issueTrackerURL="https://github.com/KnightOfTheBow/OpenGL-Error-Suppressor/issues"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="Archer (KnightOfTheBow)"
+description="Suppresses duplicate OpenGL errors."
+logoFile="icon.png"
+iconFile="icon.png"
+updateJSONURL="https://api.modrinth.com/updates/m7X4zqI5/forge_updates.json?neoforge=only"
+credits='''Derivative of "Shut Up GL Error" by Jamalam'''
+displayURL="https://modrinth.com/mod/opengl-error-suppressor"
+
+[[mixins]]
+config="${mod_id}.mixins.json"
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neo_version_range}"
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="CLIENT"
