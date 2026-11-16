@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": ["${mod_author}"],
+  "contact": {
+    "homepage": "${website}",
+    "issues": "${issue_tracker}",
+    "sources": "${source_url}"
+  },
+  "license": "${license}",
+  "icon": "${mod_id}.png",
+  "environment": "client",
+  "mixins": ["${mod_id}.mixins.json"],
+  "depends": { "minecraft": ">=${minimum_minecraft}" }
+}

@@ -1,0 +1,53 @@
+plugins {
+    id 'multiloader-loader'
+    alias(libs.plugins.fabric)
+}
+
+repositories {
+    maven {
+        name = 'Terraformers'
+        url = 'https://maven.terraformersmc.com/'
+    }
+}
+
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements', 'includeInternal', 'modCompileClasspath'].each { variant ->
+    configurations.named(variant) {
+        attributes {
+            attribute(loaderAttribute, 'fabric')
+        }
+    }
+}
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName].each { variant->
+        configurations.named(variant) {
+            attributes {
+                attribute(loaderAttribute, 'fabric')
+            }
+        }
+    }
+}
+
+dependencies {
+    minecraft("com.mojang:minecraft:${libs.versions.minecraft.get()}")
+    implementation(libs.fabric.loader)
+
+    implementation(libs.modmenu)
+}
+
+loom {
+    mods {
+        "${mod_id}" { sourceSet sourceSets.main }
+        "${test_mod_id}" { sourceSet sourceSets.testmod }
+    }
+
+    runs {
+        client {
+            client()
+            getDisplayName().set('Fabric Client')
+            getGenerateRunConfig().set(true)
+            getRunDirectory().set(getProject().file('runs/client'))
+            sourceSet.set(sourceSets.testmod.name)
+        }
+    }
+}

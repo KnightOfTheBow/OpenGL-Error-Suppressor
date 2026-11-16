@@ -1,0 +1,44 @@
+plugins {
+    id 'multiloader-common'
+}
+
+sourceSets {
+    testmod {
+        java.srcDir(project(':common').file('src/testmod/java'))
+        resources.srcDir(project(':common').file('src/testmod/resources'))
+    }
+}
+
+configurations {
+    commonJava { canBeResolved = true }
+    commonResources { canBeResolved = true }
+}
+
+dependencies {
+    compileOnly(project(':common')) {
+        attributes {
+            attribute(Attribute.of('io.github.mcgradleconventions.loader', String), 'common')
+        }
+    }
+    add('commonJava', project(path: ':common', configuration: 'commonJava'))
+    add('commonResources', project(path: ':common', configuration: 'commonResources'))
+}
+
+tasks.named('compileJava', JavaCompile) {
+    source(configurations.commonJava)
+}
+
+processResources {
+    from(configurations.commonResources)
+}
+
+tasks.named('sourcesJar', Jar) {
+    from(configurations.commonJava, configurations.commonResources)
+}
+
+tasks.register('testmodJar', Jar) {
+    archiveBaseName.set("${test_mod_id}-${project.name}")
+    archiveVersion.set("${test_mod_version}")
+    archiveClassifier.set('testmod')
+    from sourceSets.testmod.output
+}

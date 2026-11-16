@@ -1,0 +1,22 @@
+modLoader = "javafml"
+license = "${license}"
+licenseURL = "${license_url}"
+issueTrackerURL = "${issue_tracker}"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${version}"
+displayName = "${mod_name}"
+description = "${description}"
+iconFile = "${mod_id}.png"
+updateJSONURL = "${update_json}?neoforge=only"
+authors = "${mod_author}"
+displayURL = "${website}"
+
+[[mixins]]
+config = "${mod_id}.mixins.json"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+versionRange = "[${minimum_minecraft},)"
+side = "CLIENT"

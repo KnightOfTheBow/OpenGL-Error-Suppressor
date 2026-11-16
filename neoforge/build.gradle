@@ -1,0 +1,45 @@
+plugins {
+    id 'multiloader-loader'
+    alias(libs.plugins.neoforge)
+}
+
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements'].each { variant ->
+    configurations.named(variant) {
+        attributes {
+            attribute(loaderAttribute, 'neoforge')
+        }
+    }
+}
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName, it.getTaskName(null, 'jarJar')].each { variant ->
+        configurations.named(variant) {
+            attributes {
+                attribute(loaderAttribute, 'neoforge')
+            }
+        }
+    }
+}
+
+neoForge {
+    version = libs.versions.neoforge.get()
+    runs {
+        configureEach {
+            systemProperty 'neoforge.enabledGameTestNamespaces', "${mod_id}"
+            ideName = "NeoForge ${it.name.capitalize()} (${path})"
+        }
+        client {
+            client()
+            gameDirectory = layout.projectDirectory.dir('runs/client')
+        }
+    }
+
+    mods {
+        "${mod_id}" { sourceSet sourceSets.main }
+        "${test_mod_id}" { sourceSet sourceSets.testmod }
+    }
+}
+
+tasks.matching { it.name.startsWith('prepare') || it.name.startsWith('run') }.configureEach {
+    dependsOn tasks.named('testmodClasses')
+}

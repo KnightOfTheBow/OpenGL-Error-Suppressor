@@ -1,0 +1,18 @@
+modLoader = "lowcodefml"
+loaderVersion = "[66,)"
+license = "${license}"
+clientSideOnly = true
+
+[[mods]]
+modId = "${test_mod_id}"
+version = "${test_mod_version}"
+authors = "${mod_author}"
+displayURL = "${source_url}"
+displayTest = "IGNORE_ALL_VERSION"
+
+[[dependencies.${test_mod_id}]]
+modId = "${mod_id}"
+mandatory = true
+versionRange = "[${version},)"
+ordering = "AFTER"
+side = "CLIENT"

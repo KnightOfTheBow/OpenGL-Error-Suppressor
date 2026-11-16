@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "${test_mod_id}",
+  "version": "${test_mod_version}",
+  "authors": ["${mod_author}"],
+  "contact": { "sources": "${source_url}" },
+  "license": "${license}",
+  "environment": "client",
+  "mixins": ["${test_mod_id}.mixins.json"],
+  "depends": { "${mod_id}": ">=${version}" }
+}
