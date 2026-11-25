@@ -1,5 +1,0 @@
-plugins {
-    alias(libs.plugins.fabric) apply false
-    alias(libs.plugins.forge) apply false
-    alias(libs.plugins.neoforge) apply false
-}

@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MinecraftMixin {
     @Inject(method = "runTick", at = @At("TAIL"), require = 1)
     private void runTick(boolean advanceGameTime, CallbackInfo info) {
-        // Will crash in a non-OpenGL setup
         GL11.glEnable(-1);
     }
 }

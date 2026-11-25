@@ -1,17 +1,19 @@
-modLoader = "javafml"
+#
+# SPDX-FileCopyrightText: Copyright (c) 2026 Archer (KnightOfTheBow)
+# SPDX-License-Identifier: MIT
+#
+
 license = "${license}"
 licenseURL = "${license_url}"
 
 [[mods]]
-modId = "${test_mod_id}"
-version = "${test_mod_version}"
-authors = "${mod_author}"
-displayURL = "${source_url}"
+modId = "${testmod_id}"
+version = "${version}"
 
 [[mixins]]
-config = "${test_mod_id}.mixins.json"
+config = "${testmod_id}.mixins.json"
 
-[[dependencies.${test_mod_id}]]
+[[dependencies.${testmod_id}]]
 modId = "${mod_id}"
 versionRange = "[${version},)"
 side = "CLIENT"

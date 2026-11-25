@@ -1,6 +1,6 @@
 {
   "pack": {
-    "description": "${test_mod_id} mod resources",
+    "description": "${testmod_id} mod resources",
     "min_format": 97,
     "max_format": 999999
   }

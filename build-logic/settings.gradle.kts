@@ -1,10 +1,10 @@
 dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-    }
+    repositories.mavenCentral()
     versionCatalogs {
-        libs {
+        create("libs") {
             from(files("../gradle/libs.versions.toml"))
         }
     }
 }
+
+rootProject.name = "build-logic"

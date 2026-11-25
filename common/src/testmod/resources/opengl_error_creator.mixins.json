@@ -3,6 +3,6 @@
   "minVersion": "0.8",
   "package": "archer.openglerrorcreator.mixin",
   "compatibilityLevel": "JAVA_21",
-  "client": ["MinecraftMixin"],
-  "injectors": { "defaultRequire": 1 }
+  "client": ["MinecraftMixin", "OptionsMixin"],
+  "injectors": {"defaultRequire": 2 }
 }

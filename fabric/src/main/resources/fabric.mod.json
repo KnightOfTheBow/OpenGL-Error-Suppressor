@@ -4,7 +4,7 @@
   "version": "${version}",
   "name": "${mod_name}",
   "description": "${description}",
-  "authors": ["${mod_author}"],
+  "authors": ["${author}"],
   "contact": {
     "homepage": "${website}",
     "issues": "${issue_tracker}",
@@ -14,5 +14,5 @@
   "icon": "${mod_id}.png",
   "environment": "client",
   "mixins": ["${mod_id}.mixins.json"],
-  "depends": { "minecraft": ">=${minimum_minecraft}" }
+  "depends": { "minecraft": ">=${minimum_minecraft_version}" }
 }

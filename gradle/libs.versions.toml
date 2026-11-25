@@ -1,46 +1,46 @@
 [versions]
 java = "25"
+licenser = "1.2.0"
 minecraft = "26.3"
-neoform = "26.3-1"
+tomlparser = "3.9.0"
 
-# Plugins
-fabric_loom  = "1.19.4"
-forge_gradle = "7.0.40"
-forge_jarjar = "0.2.3"
-moddev = "2.0.148"
-
-# Mixins
+# :common / Mixins
+vanillagradle = "0.3.2"
 mixin = "0.8.7"
-mixin_fabric = "0.17.5+mixin.0.8.7"
-mixin_extras = "0.5.5"
+mixinextras  = "0.5.5"
 
-# Modloaders
-fabric_loader = "0.19.5"
-forge_version = "66.0.0"
+# :fabric
+fabricloom = "1.19-SNAPSHOT"
+fabricloader = "0.19.5"
+modmenu = "21.0.1"
+
+# :forge
+forgegradle = "7.0.40"
+jarjar = "0.2.3"
+forge = "66.0.0"
+
+# :neoforge
+moddevgradle = "2.0.148"
 neoforge = "26.3.0.76"
 
-# Mods
-mod_menu = "21.0.1"
-
-# Other
-night_config = "3.9.0"
-
 [libraries]
-# Mixins
-mixin_common = { module = "net.fabricmc:sponge-mixin", version.ref = "mixin_fabric" }
-mixin_extras_common = { module = "io.github.llamalad7:mixinextras-common", version.ref = "mixin_extras" }
-mixin_forge = { module = "org.spongepowered:mixin", version.ref = "mixin" }
-mixin_extras_forge = { module = "io.github.llamalad7:mixinextras-forge", version.ref = "mixin_extras" }
+tomlparser = { module = "com.electronwill.night-config:toml", version.ref = "tomlparser" }
 
-# Fabric
-fabric_loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric_loader" }
-modmenu = { module = "com.terraformersmc:modmenu", version.ref = "mod_menu" }
+# :common
+commonmixin = { module = "org.spongepowered:mixin", version.ref = "mixin" }
+commonmixinextras = { module = "io.github.llamalad7:mixinextras-common", version.ref = "mixinextras" }
 
-# Other
-night_config = { module = "com.electronwill.night-config:toml", version.ref = "night_config" }
+# :fabric
+fabricloader = { module = "net.fabricmc:fabric-loader", version.ref = "fabricloader" }
+modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu" }
+
+# :forge
+forgemixinextras = { module = "io.github.llamalad7:mixinextras-forge", version.ref = "mixinextras" }
 
 [plugins]
-fabric = { id = "net.fabricmc.fabric-loom", version.ref = "fabric_loom" }
-forge = { id = "net.minecraftforge.gradle", version.ref = "forge_gradle" }
-jarjar = { id = "net.minecraftforge.jarjar", version.ref = "forge_jarjar" }
-neoforge = { id = "net.neoforged.moddev", version.ref = "moddev" }
+licenser = { id = "net.minecraftforge.licenser", version.ref = "licenser" }
+vanillagradle = { id = "org.spongepowered.gradle.vanilla", version.ref = "vanillagradle" }
+fabricloom = { id = "net.fabricmc.fabric-loom", version.ref = "fabricloom" }
+forgegradle = { id = "net.minecraftforge.gradle", version.ref = "forgegradle" }
+jarjar = { id = "net.minecraftforge.jarjar", version.ref = "jarjar" }
+moddevgradle = { id = "net.neoforged.moddev", version.ref = "moddevgradle" }

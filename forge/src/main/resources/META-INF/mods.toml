@@ -1,3 +1,8 @@
+#
+# SPDX-FileCopyrightText: Copyright (c) 2026 Archer (KnightOfTheBow)
+# SPDX-License-Identifier: MIT
+#
+
 modLoader = "lowcodefml"
 loaderVersion = "[66,)"
 license = "${license}"
@@ -11,12 +16,12 @@ displayName = "${mod_name}"
 description = "${description}"
 logoFile = "${mod_id}.png"
 updateJSONURL = "${update_json}"
-authors = "${mod_author}"
+authors = "${author}"
 displayURL = "${website}"
 displayTest = "IGNORE_ALL_VERSION"
 
 [[dependencies.${mod_id}]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[${minimum_minecraft},)"
+versionRange = "[${minimum_minecraft_version},)"
 side = "CLIENT"

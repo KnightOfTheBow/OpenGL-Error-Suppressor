@@ -16,6 +16,10 @@ The mod is officially available to download on the following sites:
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/opengl-error-suppressor)
 - [GitHub Releases](https://github.com/KnightOfTheBow/OpenGL-Error-Suppressor/releases)
 
+> **Forge Users:** For most cases, stick to the standard Forge `.jar` file, which is the default provided.
+>
+> In GitHub Releases, you may see an optional downloadable file ending in `-slim.jar`. It omits the required [MixinExtras](https://github.com/LlamaLad7/MixinExtras) library in order to save space. This should only be used if MixinExtras is provided elsewhere, otherwise it will crash.
+
 ## Building
 1. Either download the repository ZIP and extract, or clone by doing:
    ```bash
@@ -26,10 +30,12 @@ The mod is officially available to download on the following sites:
    ```bash
    ./gradlew build
    ```
-   *(Optional)* To also build the test mod (which intentionally triggers OpenGL errors for testing), run:
-   ```bash
-   ./gradlew testmodJar
-   ```
+   *(Optional)* To also build the test mod (which intentionally triggers Vulkan errors for testing and enforces that the Vulkan backend is on), then do one of the following:
+      * Ensure `build_testmod=true` in [`gradle.properties`](gradle.properties) and then run the build task.
+      * Or run:
+        ```bash
+        ./gradlew testmodJar
+        ```
 3. Grab the compiled `.jar` files from each loader's output folder:
    - `fabric/build/libs/`
    - `forge/build/libs/`

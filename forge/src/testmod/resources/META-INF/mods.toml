@@ -1,16 +1,19 @@
+#
+# SPDX-FileCopyrightText: Copyright (c) 2026 Archer (KnightOfTheBow)
+# SPDX-License-Identifier: MIT
+#
+
 modLoader = "lowcodefml"
 loaderVersion = "[66,)"
 license = "${license}"
 clientSideOnly = true
 
 [[mods]]
-modId = "${test_mod_id}"
-version = "${test_mod_version}"
-authors = "${mod_author}"
-displayURL = "${source_url}"
+modId = "${testmod_id}"
+version = "${version}"
 displayTest = "IGNORE_ALL_VERSION"
 
-[[dependencies.${test_mod_id}]]
+[[dependencies.${testmod_id}]]
 modId = "${mod_id}"
 mandatory = true
 versionRange = "[${version},)"

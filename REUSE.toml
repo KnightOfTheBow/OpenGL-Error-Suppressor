@@ -1,0 +1,7 @@
+version = 1
+
+[[annotations]]
+path = ["src/**/*.json", "src/**/*.mcmeta", "src/**/*.png", "README.md"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Copyright (c) 2026 Archer (KnightOfTheBow)"
+SPDX-License-Identifier = "MIT"
