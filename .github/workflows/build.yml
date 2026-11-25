@@ -1,4 +1,4 @@
-name: Build Mod
+name: build
 
 on:
   push:
@@ -31,6 +31,5 @@ jobs:
           name: mod-jars
           path: |
             **/build/libs/*.jar
+            !build-logic/build/libs/*.jar
             !common/build/libs/*.jar
-            !**/build/libs/*-sources.jar
-            !**/build/libs/*-testmod.jar
