@@ -30,7 +30,7 @@ The mod is officially available to download on the following sites:
    ```bash
    ./gradlew build
    ```
-   *(Optional)* To also build the test mod (which intentionally triggers Vulkan errors for testing and enforces that the Vulkan backend is on), then do one of the following:
+   *(Optional)* To also build the test mod (which intentionally triggers OpenGL errors for testing and enforces that the OpenGL backend is on), then do one of the following:
       * Ensure `build_testmod=true` in [`gradle.properties`](gradle.properties) and then run the build task.
       * Or run:
         ```bash
