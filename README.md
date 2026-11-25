@@ -12,7 +12,7 @@ _Supports all versions from 26.3 and onward._ (Tried and tested.)
 
 ## Downloads
 The mod is officially available to download on the following sites:
-- [Modrinth](https://modrinth.com/mod/opengl-error-suppressor) (Waiting for approval)
+- [Modrinth](https://modrinth.com/mod/opengl-error-suppressor)
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/opengl-error-suppressor)
 - [GitHub Releases](https://github.com/KnightOfTheBow/OpenGL-Error-Suppressor/releases)
 
